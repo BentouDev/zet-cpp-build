@@ -1,0 +1,22 @@
+name: 'Zetsubou build'
+description: 'Build project using Zetsubou'
+
+inputs:
+  project_file:
+    description: Path to project yml file
+    required: true
+    type: string
+    default: project.yml
+  config:
+    description: Configuration string to build
+    required: true
+    type: string
+    default: Develop
+
+runs:
+  using: composite
+  steps:
+  - run: pip install zetsubou
+    shell: bash
+  - run: zetsubou ${{ inputs.project_file }} install gen build --config=${{ inputs.config }}
+    shell: bash
