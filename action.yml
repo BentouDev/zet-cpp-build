@@ -16,7 +16,7 @@ inputs:
 runs:
   using: composite
   steps:
-  - run: pip install zetsubou
+  - run: pip install zetsubou --upgrade --no-cache-dir
     shell: bash
   - run: zetsubou ${{ inputs.project_file }} install gen build --config=${{ inputs.config }}
     shell: bash
