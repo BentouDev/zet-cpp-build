@@ -18,5 +18,7 @@ runs:
   steps:
   - run: pip install zetsubou --upgrade --no-cache-dir
     shell: bash
-  - run: python -m zetsubou ${{ inputs.project_file }} install gen build --config=${{ inputs.config }}
+  - run: python -m zetsubou regen ${{ inputs.project_file }}
+    shell: bash
+  - run: python -m zetsubou build ${{ inputs.project_file }} --config=${{ inputs.config }}
     shell: bash
